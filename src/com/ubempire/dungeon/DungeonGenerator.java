@@ -4,8 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import net.llamaslayers.minecraft.banana.populators.CeilingPopulator;
 import net.llamaslayers.minecraft.banana.populators.PoolPopulator;
 import net.llamaslayers.minecraft.banana.populators.RuinsPopulator;
+import net.llamaslayers.minecraft.banana.populators.TorchPopulator;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,25 +19,28 @@ public class DungeonGenerator extends ChunkGenerator {
 	@Override
 	public List<BlockPopulator> getDefaultPopulators(World world) {
 		return Arrays.asList(new DungeonPopulator(), new PoolPopulator(),
-				new RuinsPopulator());
+				new RuinsPopulator(), new TorchPopulator(),
+				/* CeilingPopulator MUST be last */new CeilingPopulator());
 	}
 
-	// This needs to be set to return true to override minecraft's default
-	// behaviour
+	/**
+	 * This needs to be set to return true to override minecraft's default
+	 * behaviour.
+	 */
 	@Override
 	public boolean canSpawn(World world, int x, int z) {
-		double xX = Math.random() * x;
-		double zZ = Math.random() * z;
-		return xX > zZ;
+		return true;
 	}
 
 	@Override
 	public Location getFixedSpawnLocation(World world, Random random) {
-		return new Location(world, 8, world.getHighestBlockYAt(8, 8), 8);
+		return new Location(world, 8, 5, 8);
 	}
 
-	// This converts relative chunk locations to bytes that can be written to
-	// the chunk
+	/**
+	 * This converts relative chunk locations to bytes that can be written to
+	 * the chunk
+	 */
 	public int xyzToByte(int x, int y, int z) {
 		return (x * 16 + z) * 128 + y;
 	}
@@ -55,6 +60,7 @@ public class DungeonGenerator extends ChunkGenerator {
 		int xr = (rand.nextInt(3) - 1) * 15;
 		int zr = (rand.nextInt(3) - 1) * 15;
 
+		// Hollow out the floor and add walls
 		for (int y = 3 + rand.nextInt(3); y < 16; y++) {
 			for (int x = 0; x < 16; x++) {
 				for (int z = 0; z < 16; z++) {
