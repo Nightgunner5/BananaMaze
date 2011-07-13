@@ -28,10 +28,10 @@ public class TorchPopulator extends BlockPopulator {
 					int x = random.nextInt(16);
 					int z = random.nextInt(16);
 					int y = snapshot.getHighestBlockYAt(x, z);
-					if (y < 7) {
+					if (y < 19) {
 						continue;
 					}
-					y = random.nextInt(y - 6) + 6;
+					y = random.nextInt(y - 18) + 18;
 
 					Block base = source.getBlock(x, y, z);
 					for (BlockFace direction : directions) {

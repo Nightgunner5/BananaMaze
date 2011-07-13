@@ -3,5 +3,6 @@ main: com.ubempire.dungeon.DungeonPlugin
 version: 0.1
 authors:
     - codename_B # walls, floors, pillars; original code
-    - Nightgunner5 # pools, ruins, torches, ceiling; code cleanup
+    - Nightgunner5 # pools, ruins, torches, ceiling, explosion; code cleanup
 website: http://forums.bukkit.org/threads/25932/
+load: startup

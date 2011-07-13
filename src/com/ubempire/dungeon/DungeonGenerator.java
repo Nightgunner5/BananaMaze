@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.llamaslayers.minecraft.banana.populators.CeilingPopulator;
+import net.llamaslayers.minecraft.banana.populators.ExplosionPopulator;
 import net.llamaslayers.minecraft.banana.populators.PoolPopulator;
 import net.llamaslayers.minecraft.banana.populators.RuinsPopulator;
 import net.llamaslayers.minecraft.banana.populators.TorchPopulator;
@@ -19,7 +20,8 @@ public class DungeonGenerator extends ChunkGenerator {
 	@Override
 	public List<BlockPopulator> getDefaultPopulators(World world) {
 		return Arrays.asList(new DungeonPopulator(), new PoolPopulator(),
-				new RuinsPopulator(), new TorchPopulator(),
+				new ExplosionPopulator(), new RuinsPopulator(),
+				new TorchPopulator(),
 				/* CeilingPopulator MUST be last */new CeilingPopulator());
 	}
 
@@ -34,7 +36,7 @@ public class DungeonGenerator extends ChunkGenerator {
 
 	@Override
 	public Location getFixedSpawnLocation(World world, Random random) {
-		return new Location(world, 8, 5, 8);
+		return new Location(world, 8, 20, 8);
 	}
 
 	/**
@@ -50,7 +52,7 @@ public class DungeonGenerator extends ChunkGenerator {
 		byte[] result = new byte[32768];
 
 		// This will set the floor of each chunk to stone.
-		for (int y = 15; y > 0; y--) {
+		for (int y = 29; y > 0; y--) {
 			for (int x = 0; x < 16; x++) {
 				for (int z = 0; z < 16; z++) {
 					result[xyzToByte(x, y, z)] = (byte) Material.STONE.getId();
@@ -61,7 +63,7 @@ public class DungeonGenerator extends ChunkGenerator {
 		int zr = (rand.nextInt(3) - 1) * 15;
 
 		// Hollow out the floor and add walls
-		for (int y = 3 + rand.nextInt(3); y < 16; y++) {
+		for (int y = 18 + rand.nextInt(3); y < 30; y++) {
 			for (int x = 0; x < 16; x++) {
 				for (int z = 0; z < 16; z++) {
 					if ((x == 0 || x == 15) && (z == 0 || z == 15)) {

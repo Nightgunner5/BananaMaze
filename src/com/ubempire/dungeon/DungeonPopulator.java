@@ -9,7 +9,7 @@ import org.bukkit.generator.BlockPopulator;
 public class DungeonPopulator extends BlockPopulator {
 	@Override
 	public void populate(World world, Random rand, Chunk chunk) {
-		int y = 5;
+		int y = 20;
 		int chunkX = chunk.getX() * 16;
 		int chunkZ = chunk.getZ() * 16;
 
@@ -17,7 +17,7 @@ public class DungeonPopulator extends BlockPopulator {
 		int[] NSEW2 = doNSEW2(world, chunk, y);
 		int hasExit = hasExit(NSEW1, NSEW2);
 		if (hasExit == -1) {
-			for (y = 5; y < 16; y++) {
+			for (y = 20; y < 30; y++) {
 				for (int z = 1; z < 15; z++) {
 					world.getBlockAt(chunkX, y, chunkZ + z).setTypeId(0);
 					world.getBlockAt(chunkX - 1, y, chunkZ + z).setTypeId(0);
