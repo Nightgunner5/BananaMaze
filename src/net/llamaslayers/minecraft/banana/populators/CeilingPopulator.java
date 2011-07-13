@@ -23,10 +23,10 @@ public class CeilingPopulator extends BlockPopulator {
 		for (int x = 0; x < 16; x++) {
 			for (int z = 0; z < 16; z++) {
 				if (noise.noise(x + source.getX() << 4, z + source.getZ() << 4,
-						OCTAVES, FREQUENCY, AMPLITUDE) > THRESHOLD) {
+						OCTAVES, FREQUENCY, AMPLITUDE) > (THRESHOLD + 1) * 2 - 1) {
 					source.getBlock(x, 30, z).setType(CEILING_MATERIAL);
 				} else if (noise.noise(x + source.getX() << 4,
-						z + source.getZ() << 4, OCTAVES, FREQUENCY, AMPLITUDE) > (THRESHOLD + 1) * 2 - 1) {
+						z + source.getZ() << 4, OCTAVES, FREQUENCY, AMPLITUDE) > THRESHOLD) {
 					source.getBlock(x, 30, z).setType(BROKEN_CEILING_MATERIAL);
 				}
 			}
