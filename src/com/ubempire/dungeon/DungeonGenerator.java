@@ -11,6 +11,7 @@ import net.llamaslayers.minecraft.banana.populators.LanternPopulator;
 import net.llamaslayers.minecraft.banana.populators.PoolPopulator;
 import net.llamaslayers.minecraft.banana.populators.RuinsPopulator;
 import net.llamaslayers.minecraft.banana.populators.TorchPopulator;
+import net.llamaslayers.minecraft.banana.populators.WebPopulator;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -24,7 +25,7 @@ public class DungeonGenerator extends ChunkGenerator {
 		return Arrays.asList(new DungeonPopulator(), new PoolPopulator(),
 				new ExplosionPopulator(), new RuinsPopulator(),
 				new LanternPopulator(), new ChestPopulator(),
-				new TorchPopulator(),
+				new WebPopulator(), new TorchPopulator(),
 				/* CeilingPopulator MUST be last */new CeilingPopulator());
 	}
 
