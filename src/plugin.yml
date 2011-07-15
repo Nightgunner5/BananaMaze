@@ -1,9 +1,9 @@
 name: BananaMaze
 main: com.ubempire.dungeon.DungeonPlugin
-version: 0.1.1
+version: 0.2
 authors:
     - codename_B # walls, floors, pillars; original code
-    - Nightgunner5 # pools, ruins, torches, ceiling, explosion; code cleanup
+    - Nightgunner5 # pools, ruins, torches, ceiling, explosion, lantern, chest; code cleanup
     - SpaceManiac # bugfixes
-website: http://forums.bukkit.org/threads/25932/
+website: http://forums.bukkit.org/threads/26113/
 load: startup
