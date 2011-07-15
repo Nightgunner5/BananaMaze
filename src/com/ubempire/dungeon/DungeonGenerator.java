@@ -8,6 +8,7 @@ import net.llamaslayers.minecraft.banana.populators.CeilingPopulator;
 import net.llamaslayers.minecraft.banana.populators.ChestPopulator;
 import net.llamaslayers.minecraft.banana.populators.ExplosionPopulator;
 import net.llamaslayers.minecraft.banana.populators.LanternPopulator;
+import net.llamaslayers.minecraft.banana.populators.MossPopulator;
 import net.llamaslayers.minecraft.banana.populators.PoolPopulator;
 import net.llamaslayers.minecraft.banana.populators.RuinsPopulator;
 import net.llamaslayers.minecraft.banana.populators.TorchPopulator;
@@ -25,7 +26,7 @@ public class DungeonGenerator extends ChunkGenerator {
 		return Arrays.asList(new DungeonPopulator(), new PoolPopulator(),
 				new ExplosionPopulator(), new RuinsPopulator(),
 				new LanternPopulator(), new ChestPopulator(),
-				new WebPopulator(), new TorchPopulator(),
+				new WebPopulator(), new TorchPopulator(), new MossPopulator(),
 				/* CeilingPopulator MUST be last */new CeilingPopulator());
 	}
 

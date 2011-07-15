@@ -15,7 +15,7 @@ public class WebPopulator extends BlockPopulator {
 	public static final int ITERATIONS = 7;
 	public static final int CHANCE = 40;
 	public static final int CORNER_CHANCE = 20;
-	public static final int CEILING_HEIGHT = 30;
+	public static final int CEILING_HEIGHT = 29;
 	public static final Material WEB_MATERIAL = Material.WEB;
 	public static final Set<Material> ALLOWED_BASE_BLOCK = new HashSet<Material>(
 			Arrays.asList(Material.STONE, Material.COBBLESTONE, Material.WEB,
